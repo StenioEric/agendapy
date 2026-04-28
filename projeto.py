@@ -4,8 +4,28 @@ import time
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
     
+agenda = []
 def adicionar_contato():
+    # Funcionalidade de adicionar contatos e favoritar
+    nome = input("\n Digite seu nome: ")
+    tel = input("\n Digite seu telefone: ")
+    email = input("\n Digite seu email: ")
+    favoritos = input("\n Adicionar número aos favoritos(SIM/NÃO): ")
+
+    if favoritos == "SIM":
+        favoritos = True
+    else:
+        favoritos = False
+
     print("CONTATO ADICIONADO")
+    contato = {"contato": nome,
+               "telefone":tel,
+               "email":email,
+               "favoritos": favoritos,
+               }
+    
+    agenda.append(contato)
+    # print(agenda)
 
 def listar_contatos():
     print("LISTA DE CONTATOS")
@@ -55,5 +75,7 @@ while True:
             remover_contato()
         case "0":
             break
+
+
     time.sleep(3)
             
