@@ -99,12 +99,30 @@ def editar_contato():
 
 
 def lista_favoritos():
-    print("\n LISTA DE CONTATOS FAVORITOS")
+    print("\n" + "=" * 50)
+    print("⭐ CONTATOS FAVORITOS".center(50))
+    print("=" * 50)
+
+    encontrou = False
+
     for contato in agenda:
-        if contato["Favoritos"] == True:
-            for chave, valor in contato.items():
-                print(chave, ":" , valor,)
-            print("\n" + "=" * 50)
+
+        if contato["Favoritos"]:
+
+            encontrou = True
+
+            print(f"\n🆔 ID: {contato['IP']}")
+            print("-" * 50)
+
+            print(f"👤 Nome      : {contato['Contato']}")
+            print(f"📞 Telefone : {contato['Telefone']}")
+            print(f"📧 Email    : {contato['Email']}")
+
+            print("=" * 50)
+
+    if not encontrou:
+        print("\n⚠️ Nenhum contato favorito encontrado.")
+        print("=" * 50)
 
 def remover_contato():
     listar_contatos()
