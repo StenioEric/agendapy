@@ -76,7 +76,7 @@ def editar_contato():
                 newEmail = input("Digite o novo email: ")
                 agenda[indice_contato]["Email"] = newEmail
             case "4":
-                newFavoritos = input("Digite 1 para favoritar e 0 para remover dos favoritos: ")
+                newFavoritos = input("Digite 1 para favoritar e 0 para remover dos favoritos: ").strip()
                 if newFavoritos == "1":
                     agenda[indice_contato]["Favoritos"] = True
                 else:            
