@@ -7,6 +7,7 @@ def limpar_tela():
 agenda = []
 def adicionar_contato():
     # Funcionalidade de adicionar contatos e favoritar
+    ip = len(agenda) + 1
     nome = input("\n Digite seu nome: ")
     tel = input("\n Digite seu telefone: ")
     email = input("\n Digite seu email: ")
@@ -18,10 +19,11 @@ def adicionar_contato():
         favoritos = False
 
     print("CONTATO ADICIONADO")
-    contato = {"contato": nome,
-               "telefone":tel,
-               "email":email,
-               "favoritos": favoritos,
+    contato = {"Contato": nome,
+               "Telefone":tel,
+               "Email":email,
+               "Favoritos": favoritos,
+               "IP": ip,
                }
     
     agenda.append(contato)
@@ -30,8 +32,36 @@ def adicionar_contato():
 def listar_contatos():
     print("LISTA DE CONTATOS")
 
+    for contato in agenda:
+        for chave, valor in contato.items():
+            print(chave, ":" , valor,)
+        print("=" * 50)
+
 def editar_contato():
-    print("DADOS DO CONTATO")
+
+    listar_contatos()
+
+    ip = int(input("\nDigite o ID do contato para editar: "))
+    indice_contato = ip - 1
+
+    if indice_contato >= 0 and indice_contato < len(agenda):
+
+        newName = input("Digite o novo nome: ")
+        newFone = input("Digite o novo número: ")
+        newEmail = input("Digite o novo email: ")
+        newFavoritos = input("Digite True para favoritar e False para o inverso: ")
+
+        agenda[indice_contato]["Contato"] = newName
+        agenda[indice_contato]["Telefone"] = newFone
+        agenda[indice_contato]["Email"] = newEmail
+        agenda[indice_contato]["Favoritos"] = newFavoritos
+
+        print("\nContato atualizado com sucesso!")
+
+    else:
+        print("\nContato inválido!")
+
+    
 
 def lista_favoritos():
     print("LISTA DE CONTATOS FAVORITOS")
@@ -59,6 +89,7 @@ def mostrar_menu():
 while True:
     limpar_tela()
     mostrar_menu()
+    ip = 0
 
     opcao = input("Digite o número da sua opoção: ")
 
