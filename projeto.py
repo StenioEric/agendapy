@@ -26,12 +26,15 @@ def adicionar_contato():
                }
     
     agenda.append(contato)
-    print("\n CONTATO ADICIONADO")
+    print("\n" + "=" * 50)
+    print("✅ CONTATO ADICIONADO COM SUCESSO!".center(50))
+    print("=" * 50)
     # print(agenda)
 
 def listar_contatos():
     print("\n" + "=" * 50)
     print("📋 LISTA DE CONTATOS".center(50))
+    print(f"\n📊 TOTAL DE CONTATOS: {len(agenda)}")
     print("=" * 50)
 
     if not agenda:
@@ -93,10 +96,13 @@ def editar_contato():
                 else:            
                     agenda[indice_contato]["Favoritos"] = False
 
-        print("\nContato atualizado com sucesso!")
+        print("\n" + "=" * 50)
+        print("✏️ CONTATO ATUALIZADO COM SUCESSO!".center(50))
+        print("=" * 50)
     else:
-        print("\nContato inválido!")
-
+        print("\n" + "=" * 50)
+        print("❌ CONTATO NÃO ENCONTRADO!".center(50))
+        print("=" * 50)
 
 def lista_favoritos():
     print("\n" + "=" * 50)
@@ -131,7 +137,9 @@ def remover_contato():
         if contato["IP"] == ip:
             agenda.remove(contato)
 
-    print("\n CONTATO REMOVIDO")
+    print("\n" + "=" * 50)
+    print("🗑️ CONTATO REMOVIDO COM SUCESSO!".center(50))
+    print("=" * 50)
 
 def mostrar_menu():
     print("=" * 50)
@@ -143,7 +151,7 @@ def mostrar_menu():
     print(" [1] ➕  Adicionar contato")
     print(" [2] 📋  Listar contatos")
     print(" [3] 🔍  Editar contato")
-    print(" [4] 🔍  Listar favoritos")
+    print(" [4] ⭐   Listar favoritos")
     print(" [5] ❌  Remover contato")
     print(" [0] 🚪  Sair")
 
