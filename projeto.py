@@ -40,7 +40,6 @@ def listar_contatos():
 def editar_contato():
 
     listar_contatos()
-
     ip = int(input("\nDigite o ID do contato para editar: "))
     indice_contato = ip - 1
 
@@ -50,25 +49,31 @@ def editar_contato():
         newFone = input("Digite o novo número: ")
         newEmail = input("Digite o novo email: ")
         newFavoritos = input("Digite True para favoritar e False para o inverso: ")
-
+        
         agenda[indice_contato]["Contato"] = newName
         agenda[indice_contato]["Telefone"] = newFone
         agenda[indice_contato]["Email"] = newEmail
         agenda[indice_contato]["Favoritos"] = newFavoritos
-
         print("\nContato atualizado com sucesso!")
-
     else:
         print("\nContato inválido!")
 
-    
 
 def lista_favoritos():
-    print("LISTA DE CONTATOS FAVORITOS")
+    print("\n LISTA DE CONTATOS FAVORITOS")
+    for contato in agenda:
+        if contato["Favoritos"] == True:
+            for chave, valor in contato.items():
+                print(chave, ":" , valor,)
+            print("\n" + "=" * 50)
 
 def remover_contato():
-    print("CONTATO REMOVIDO")
+    ip = int(input("\nDigite o ID do contato para remover: "))
+    for contato in agenda:
+        if contato["IP"] == ip:
+            agenda.remove(contato)
 
+    print("\n CONTATO REMOVIDO")
 
 def mostrar_menu():
     print("=" * 50)
