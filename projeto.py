@@ -30,11 +30,27 @@ def adicionar_contato():
     # print(agenda)
 
 def listar_contatos():
-    print("LISTA DE CONTATOS")
+    print("\n" + "=" * 50)
+    print("📋 LISTA DE CONTATOS".center(50))
+    print("=" * 50)
+
+    if not agenda:
+        print("\n⚠️ Nenhum contato cadastrado.")
+        print("=" * 50)
+        return
 
     for contato in agenda:
-        for chave, valor in contato.items():
-            print(chave, ":" , valor,)
+
+        favorito_icon = "⭐" if contato["Favoritos"] else ""
+
+        print(f"\n🆔 ID: {contato['IP']} {favorito_icon}")
+        print("-" * 50)
+
+        print(f"👤 Nome      : {contato['Contato']}")
+        print(f"📞 Telefone : {contato['Telefone']}")
+        print(f"📧 Email    : {contato['Email']}")
+        print(f"⭐ Favorito : {'Sim' if contato['Favoritos'] else 'Não'}")
+
         print("=" * 50)
 
 def editar_contato():
